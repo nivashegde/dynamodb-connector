@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: redis-cache-manager
-Implementation-Version: 0.0.1
-Build-Jdk-Spec: 1.8
-Created-By: Maven Integration for Eclipse
-Main-Class: org.csulb.md.MainApp
-

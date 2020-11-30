@@ -1,4 +1,4 @@
-package com.disney.dlpis.service;
+package org.csulb.md.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

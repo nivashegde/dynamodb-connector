@@ -1,4 +1,4 @@
-package com.disney.dlpis.config;
+package org.csulb.md.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
