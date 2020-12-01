@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 
 import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.BasicSessionCredentials;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
@@ -42,10 +43,13 @@ public class DynamoDBConfig {
     @Bean
     public AWSCredentials amazonAWSCredentials() {
     	
-    	BasicSessionCredentials awsCredentials = new BasicSessionCredentials(
-    			amazonAWSAccessKey,
-    			amazonAWSSecretKey,
-    			awsSessionToken);
+    	AWSCredentials awsCredentials = null;
+    	
+    	if(StringUtils.isEmpty(this.awsSessionToken)) {
+    		awsCredentials = new BasicAWSCredentials(this.amazonAWSAccessKey, this.amazonAWSSecretKey);
+    	} else {
+    		awsCredentials = new BasicSessionCredentials(this.amazonAWSAccessKey, this.amazonAWSSecretKey, this.awsSessionToken);
+    	}
     	
     	return awsCredentials;
     }

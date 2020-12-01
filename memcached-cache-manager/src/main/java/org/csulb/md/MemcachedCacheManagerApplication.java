@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class RedisCacheManagerApplication{	
+public class MemcachedCacheManagerApplication{	
 		
     public static void main( String[] args ){
-        SpringApplication.run(RedisCacheManagerApplication.class, args);
+        SpringApplication.run(MemcachedCacheManagerApplication.class, args);
     }
     
 }

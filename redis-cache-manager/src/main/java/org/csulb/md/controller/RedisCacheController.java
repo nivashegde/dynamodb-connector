@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/redis-cache-manager")
-public class DeltaCacheController {
+public class RedisCacheController {
 	
-	private static final Logger LOG = LogManager.getLogger(DeltaCacheController.class);
+	private static final Logger LOG = LogManager.getLogger(RedisCacheController.class);
 
     @Autowired
     private RedisService service;

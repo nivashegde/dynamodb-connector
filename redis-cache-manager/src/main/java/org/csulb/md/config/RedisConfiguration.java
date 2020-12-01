@@ -20,7 +20,6 @@ public class RedisConfiguration {
 	@Value("${redis.port}")
 	private Integer redisPort;
 	
-    @Bean
     public JedisConnectionFactory jedisConnectionFactory() {
         JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
         jedisConnectionFactory.setHostName(redisHost);
