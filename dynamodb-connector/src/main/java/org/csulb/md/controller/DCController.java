@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.csulb.md.pojo.UserInfo;
 import org.csulb.md.service.CacheService;
 import org.csulb.md.service.DBService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DCController {
+	
+	Logger logger = LoggerFactory.getLogger(DCController.class);
 	
 	@Value("${use.cache}")
     private String useCacheFlag;
@@ -30,6 +34,7 @@ public class DCController {
 		if(useCacheFlag.equalsIgnoreCase("true")) {
 			Optional<UserInfo> userInfo = cacheService.getUserIdFromCache(id);	
 			if(userInfo.isPresent()) {
+				logger.info("UserInfo found - Cache Hit: "+id);
 				return userInfo.get();
 			}
 		}

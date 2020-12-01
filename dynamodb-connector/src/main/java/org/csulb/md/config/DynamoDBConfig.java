@@ -16,8 +16,8 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 @EnableDynamoDBRepositories(basePackages = "org.csulb.md.repo")
 public class DynamoDBConfig {
 	
-	@Value("${amazon.dynamodb.endpoint}")
-    private String amazonDynamoDBEndpoint;
+	@Value("${amazon.dynamodb.region}")
+    private String amazonDynamoDBregion;
  
     @Value("${amazon.aws.accesskey}")
     private String amazonAWSAccessKey;
@@ -30,11 +30,14 @@ public class DynamoDBConfig {
  
     @Bean
     public AmazonDynamoDB amazonDynamoDB() {
+    	
+    	
         AmazonDynamoDB amazonDynamoDB 
           = new AmazonDynamoDBClient(amazonAWSCredentials());
         
-        if (!StringUtils.isEmpty(amazonDynamoDBEndpoint)) {
-            amazonDynamoDB.setEndpoint(amazonDynamoDBEndpoint);
+        if (!StringUtils.isEmpty(amazonDynamoDBregion)) {
+        	String endpoint = "https://dynamodb." + amazonDynamoDBregion + ".amazonaws.com";
+            amazonDynamoDB.setEndpoint(endpoint);
         }
         
         return amazonDynamoDB;

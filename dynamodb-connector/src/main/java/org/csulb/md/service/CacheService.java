@@ -12,26 +12,27 @@ public class CacheService {
 	
 	public CacheService() {
 		restTemplate = new RestTemplate();
-		cacheClusterName = cacheService.equalsIgnoreCase("MEMCACHED") ? "memcached" : "redis";
 	}
 	
 	private RestTemplate restTemplate = null;
-	private String cacheClusterName;
 	
 	@Value("${cache.port}")
     private String cachePort;
 	
 	@Value("${cache.service}")
     private String cacheService;
+	
+	@Value("${cache.host}")
+    private String cachehost;
 
 	public Optional<UserInfo> getUserIdFromCache(String id) {
-		String cacheServer = "http://localhost:"+ cachePort +"/" + cacheClusterName +"-cache-manager/get/" + id;
+		String cacheServer = "http://" + cachehost + ":"+ cachePort +"/" + cacheService.toLowerCase() +"-cache-manager/get/" + id;
 		UserInfo userInfo = restTemplate.getForObject(cacheServer, UserInfo.class);	
 		return Optional.ofNullable(userInfo);
 	}
 	
 	public void putUserId(String id, UserInfo userInfo) {
-		String cacheServer = "http://localhost:"+ cachePort +"/" + cacheClusterName +"-cache-manager/get/" + id;
+		String cacheServer = "http://" + cachehost + ":"+ cachePort +"/" + cacheService.toLowerCase() +"-cache-manager/put/" + id;
 		restTemplate.put(cacheServer, userInfo);
 	}
 

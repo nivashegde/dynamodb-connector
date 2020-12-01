@@ -20,7 +20,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<docker.image.prefix>springio</docker.image.prefix>
-		<start-class>org.csulb.md.MainApp</start-class>
+		<start-class>org.csulb.md.DynamoDBConnectorApplication</start-class>
 	</properties>
 
 	<dependencies>

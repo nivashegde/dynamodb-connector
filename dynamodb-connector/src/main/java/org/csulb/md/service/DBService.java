@@ -22,9 +22,9 @@ public class DBService {
 		Optional<UserInfo> userId = userInfoRepository.findById(id);
 		
 		if(userId.isPresent()) {
-			logger.info("UserInfo found: "+userId.get().getId());
+			logger.info("UserInfo found from DB: "+id);
 		} else {
-			logger.info("UserInfo not found: "+id);
+			logger.info("UserInfo not found from DB: "+id);
 		}
 		
 		return userId;

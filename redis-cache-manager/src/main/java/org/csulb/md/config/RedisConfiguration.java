@@ -14,10 +14,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableRedisRepositories
 public class RedisConfiguration {
 	
-	@Value("${redis.host}")
+	@Value("${cache.host}")
 	private String redisHost;
 
-	@Value("${redis.port}")
+	@Value("${cache.port}")
 	private Integer redisPort;
 	
     public JedisConnectionFactory jedisConnectionFactory() {
