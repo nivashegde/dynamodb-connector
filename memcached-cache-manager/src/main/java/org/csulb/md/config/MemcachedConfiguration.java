@@ -27,7 +27,7 @@ public class MemcachedConfiguration {
                 .setTranscoder(new SerializingTranscoder())
                 .setProtocol(ConnectionFactoryBuilder.Protocol.BINARY)
                 .build(),
-            AddrUtil.getAddresses(memcachedHost));
+            AddrUtil.getAddresses(memcachedHost + ":" + memcachedPort));
     	return client;
     }
 
