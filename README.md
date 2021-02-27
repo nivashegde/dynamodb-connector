@@ -1,5 +1,13 @@
 # Caching Mechanisms
 
+![alt text](https://github.com/nivashegde/dynamodb-connector/architecture.jpg?raw=true)
+
+#### Redis/Memcached cache manager can be reused and can be pulled using  - 
+
+1. docker pull nivashegde01/memcached-cache-manager:1
+
+2. docker pull nivashegde01/redis-cache-manager:1
+
 
 ### Run Dynamodb-Connector without caching mechanisms
 
