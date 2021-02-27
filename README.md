@@ -1,6 +1,6 @@
 # Caching Mechanisms
 
-![alt text](https://github.com/nivashegde/dynamodb-connector/architecture.jpg?raw=true)
+![alt text](https://github.com/nivashegde/dynamodb-connector/blob/main/architecture.jpg?raw=true)
 
 #### Redis/Memcached cache manager can be reused and can be pulled using  - 
 
